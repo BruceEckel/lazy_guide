@@ -1,0 +1,9 @@
+b = True
+print(f"{type(b) = }")
+# type(b) = <class 'bool'>
+s = "a string"
+print(f"{type(s) = }")
+# type(s) = <class 'str'>
+n = None
+print(f"{type(n) = }")
+# type(n) = <class 'NoneType'>

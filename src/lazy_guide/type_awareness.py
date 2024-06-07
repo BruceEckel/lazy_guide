@@ -7,3 +7,6 @@ print(f"{type(s) = }")
 n = None
 print(f"{type(n) = }")
 # type(n) = <class 'NoneType'>
+n = 1.23
+print(f"{type(n) = }")
+# type(n) = <class 'float'>

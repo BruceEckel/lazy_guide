@@ -2,9 +2,9 @@
 from validate_output import console
 
 x = True
-print(f"{type(True) = }")
+print(f"{type(x) = }")
 console == """
-type(True) = <class 'bool'>
+type(x) = <class 'bool'>
 """
 
 x = "a string"

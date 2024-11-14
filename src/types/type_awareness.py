@@ -19,16 +19,16 @@ console == """
 type(x) = <class 'NoneType'>
 """
 
-x = 1.23
-print(f"{type(x) = }")
-console == """
-type(x) = <class 'float'>
-"""
-
 x = 11
 print(f"{type(x) = }")
 console == """
 type(x) = <class 'int'>
+"""
+
+x = 1.23
+print(f"{type(x) = }")
+console == """
+type(x) = <class 'float'>
 """
 
 x = {"a", "b", "c"}

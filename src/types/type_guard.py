@@ -21,7 +21,9 @@ def analyze_sales(amounts: list[float]) -> SalesStats:
 if __name__ == "__main__":
     good_data = [100.0, 200.0, 300.0]
     print(analyze_sales(good_data))
-    console==""""""
+    console == """
+SalesStats(total=600.0, average=200.0, maximum=300.0)
+"""
 
     # Mixed types including a string
     bad_data = [100, "200", 300.0]
@@ -29,4 +31,6 @@ if __name__ == "__main__":
         analyze_sales(bad_data)
     except TypeError:
         print(f"Bad inputs: {bad_data}")
-    console==""""""
+    console == """
+Bad inputs: [100, '200', 300.0]
+"""

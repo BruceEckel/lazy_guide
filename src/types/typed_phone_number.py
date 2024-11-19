@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 
-@dataclass
+@dataclass(frozen=True)
 class PhoneNumber:
     original: str
     country: Optional[int] = field(init=False, default=None)
@@ -37,23 +37,27 @@ class PhoneNumber:
                 f"Invalid: {self.original}"
             )
 
-        if len(match.groups()) == 5:  # Country code included
-            self.country = int(match.group(1))
-            self.area = int(match.group(2))
-            self.exchange = int(match.group(3))
-            self.line = int(match.group(4))
+        # Assign attributes for frozen dataclass
+        def assign(attr_name: str, value: Optional[int]):
+            object.__setattr__(self, attr_name, value)
+
+        if len(match.groups()) == 5:  # Country code
+            assign('country', int(match.group(1)))
+            assign('area', int(match.group(2)))
+            assign('exchange', int(match.group(3)))
+            assign('line', int(match.group(4)))
             if match.group(5):
-                self.ext = int(match.group(5))
+                assign('ext', int(match.group(5)))
         elif len(match.groups()) == 4:  # No country code
-            self.area = int(match.group(1))
-            self.exchange = int(match.group(2))
-            self.line = int(match.group(3))
+            assign('area', int(match.group(1)))
+            assign('exchange', int(match.group(2)))
+            assign('line', int(match.group(3)))
             if match.group(4):
-                self.ext = int(match.group(4))
+                assign('ext', int(match.group(4)))
         elif len(match.groups()) == 1:  # 10-digit number
-            self.area = int(self.original[:3])
-            self.exchange = int(self.original[3:6])
-            self.line = int(self.original[6:])
+            assign('area', int(self.original[:3]))
+            assign('exchange', int(self.original[3:6]))
+            assign('line', int(self.original[6:]))
 
     def __str__(self) -> str:
         return (
@@ -68,6 +72,10 @@ def call(number: PhoneNumber):
     print(number)
 
 
+def text(number: PhoneNumber, message: str):
+    print(number, message)
+
+
 for n in ["+1 (123) 456-7890",
           "(123) 456-7890",
           "123-456-7890",
@@ -75,3 +83,4 @@ for n in ["+1 (123) 456-7890",
           "1234567890",
           ]:
     call(PhoneNumber(n))
+    text(PhoneNumber(n), "Howdy!")

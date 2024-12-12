@@ -1,5 +1,5 @@
 #: disallow_illegal_states.py
-# from validate_output import console
+# 
 from dataclasses import dataclass
 
 

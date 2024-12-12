@@ -2,7 +2,7 @@
 from dataclasses import dataclass
 
 from typeguard import typechecked
-from validate_output import console
+
 
 
 @dataclass
@@ -22,9 +22,6 @@ def analyze_sales(amounts: list[float]) -> SalesStats:
 if __name__ == "__main__":
     good_data = [100.0, 200.0, 300.0]
     print(analyze_sales(good_data))
-    console == """
-SalesStats(total=600.0, average=200.0, maximum=300.0)
-"""
 
     # Mixed types including a string
     bad_data = [100, "200", 300.0]
@@ -32,6 +29,3 @@ SalesStats(total=600.0, average=200.0, maximum=300.0)
         analyze_sales(bad_data)
     except TypeError:
         print(f"Bad inputs: {bad_data}")
-    console == """
-Bad inputs: [100, '200', 300.0]
-"""

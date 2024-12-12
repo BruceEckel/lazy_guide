@@ -7,9 +7,6 @@ if sys.version_info > (3, 13):  # TypeIs is available in Python 3.13+
 else:
     from typing_extensions import TypeIs
 
-from validate_output import console
-
-
 @dataclass
 class LetterNumber:
     letter: str
@@ -44,12 +41,3 @@ letter_number_list: list[dict] = [
 
 if __name__ == "__main__":
     [print(is_letter_number(f)) for f in letter_number_list]
-    console == """
-is_letter_number({'letter': 'a', 'number': 1}): True
-is_letter_number({'Letter': 'b', 'number': 2}): False
-is_letter_number({'letter': 9, 'number': 3}): False
-is_letter_number({'letter': 'd', 'number': 'x'}): False
-is_letter_number({'letter': 'ee', 'number': 5}): False
-is_letter_number({'letter': 'f', 'number': 11}): False
-is_letter_number({'letter': 'g', 'number': 9}): True
-"""

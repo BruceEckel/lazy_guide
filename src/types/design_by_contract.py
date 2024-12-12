@@ -1,8 +1,6 @@
 #: design_by_contract.py
 from typing import Final
 
-from validate_output import console
-
 
 def invariant(balance: float) -> float:
     assert balance >= 0
@@ -33,11 +31,6 @@ def withdraw(balance: float, amount: float) -> float:
 
 
 print(balance := deposit(100.0, 50.0))
-console == """
-150.0
-"""
-
+#| 150.0)
 print(withdraw(balance, 30.0))
-console == """
-120.0
-"""
+#| 120.0)

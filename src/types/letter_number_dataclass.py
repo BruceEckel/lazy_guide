@@ -3,9 +3,10 @@ import sys
 from dataclasses import asdict, dataclass
 
 if sys.version_info > (3, 13):  # TypeIs is available in Python 3.13+
-    from typing import TypeIs
+    from typing import TypeIs, Union
 else:
     from typing_extensions import TypeIs
+
 
 @dataclass
 class LetterNumber:
@@ -19,14 +20,17 @@ class LetterNumber:
             raise ValueError("number must be an integer between 1 and 9")
 
 
-def is_letter_number(val: dict) -> TypeIs[LetterNumber]:
-    print(f"is_letter_number({val}): ", end="")
-    try:
-        # Attempt to create a LetterNumber instance:
-        LetterNumber(**val)
-    except (TypeError, ValueError):
-        return False
-    return True
+@dataclass
+class ILN_Result:
+    type_is: TypeIs[LetterNumber]
+    val: Union[LetterNumber, TypeError, ValueError]
+
+
+def is_letter_number(val: dict) -> ILN_Result:
+    try:  # Attempt to create a LetterNumber instance:
+        return ILN_Result(True, LetterNumber(**val))
+    except (TypeError, ValueError) as e:
+        return ILN_Result(False, e)
 
 
 letter_number_list: list[dict] = [
@@ -39,5 +43,5 @@ letter_number_list: list[dict] = [
     asdict(LetterNumber("g", 9)),
 ]
 
-if __name__ == "__main__":
-    [print(is_letter_number(f)) for f in letter_number_list]
+r = "\n".join([str(is_letter_number(f)) for f in letter_number_list])
+print(r)

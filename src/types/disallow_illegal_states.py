@@ -1,5 +1,5 @@
 #: disallow_illegal_states.py
-# 
+#
 from dataclasses import dataclass
 
 
@@ -37,10 +37,10 @@ print(account)
 
 try:
     account.deposit(Money(-10.0))
-except:
+except Exception:
     print("failed: deposit(Money(-10.0))")
 
 try:
     account.withdraw(Money(150.0))
-except:
+except Exception:
     print("failed: withdraw(Money(150.0))")

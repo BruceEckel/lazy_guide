@@ -1,4 +1,4 @@
-#: constants.py
+# constants.py
 from typing import Final
 
 # Traditional constant:
@@ -7,7 +7,9 @@ GOLDEN_RATIO = 1.61803
 pi: Final[float] = 3.14159
 
 print(f"{type(pi) = }, {pi}")
+## type(pi) = <class 'float'>, 3.14159
 print(f"{type(GOLDEN_RATIO) = }, {GOLDEN_RATIO}")
+## type(GOLDEN_RATIO) = <class 'float'>, 1.61803
 
 pi = 4.0
 # Produces:

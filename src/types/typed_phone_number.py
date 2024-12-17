@@ -1,4 +1,4 @@
-#: typed_phone_number.py
+# typed_phone_number.py
 import re
 from dataclasses import dataclass, field
 from typing import Optional
@@ -84,3 +84,13 @@ for n in ["+1 (123) 456-7890",
           ]:
     call(PhoneNumber(n))
     text(PhoneNumber(n), "Howdy!")
+## +1 (123) 456-7890
+## +1 (123) 456-7890 Howdy!
+## (123) 456-7890
+## (123) 456-7890 Howdy!
+## (123) 456-7890
+## (123) 456-7890 Howdy!
+## (123) 456-7890 ext. 22
+## (123) 456-7890 ext. 22 Howdy!
+## (123) 456-7890
+## (123) 456-7890 Howdy!

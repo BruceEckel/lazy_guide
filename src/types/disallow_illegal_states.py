@@ -1,4 +1,4 @@
-#: disallow_illegal_states.py
+# disallow_illegal_states.py
 #
 from dataclasses import dataclass
 
@@ -30,17 +30,22 @@ class Account:
 
 account = Account(Money(50.0))
 print(account)
+## Account(balance=Money(amount=50.0))
 account.deposit(Money(100.0))
 print(account)
+## Account(balance=Money(amount=150.0))
 account.withdraw(Money(30.0))
 print(account)
+## Account(balance=Money(amount=120.0))
 
 try:
     account.deposit(Money(-10.0))
 except Exception:
     print("failed: deposit(Money(-10.0))")
+## failed: deposit(Money(-10.0))
 
 try:
     account.withdraw(Money(150.0))
 except Exception:
     print("failed: withdraw(Money(150.0))")
+## failed: withdraw(Money(150.0))

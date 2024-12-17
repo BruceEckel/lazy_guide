@@ -1,4 +1,4 @@
-#: letter_number_dataclass.py
+# letter_number_dataclass.py
 import sys
 from dataclasses import asdict, dataclass
 
@@ -45,3 +45,22 @@ letter_number_list: list[dict] = [
 
 r = "\n".join([str(is_letter_number(f)) for f in letter_number_list])
 print(r)
+## ILN_Result(type_is=True,
+## val=LetterNumber(letter='a', number=1))
+## ILN_Result(type_is=False,
+## val=TypeError("LetterNumber.__init__() got an
+## unexpected keyword argument 'Letter'. Did you
+## mean 'letter'?"))
+## ILN_Result(type_is=False, val=TypeError("object
+## of type 'int' has no len()"))
+## ILN_Result(type_is=False, val=TypeError("'<'
+## not supported between instances of 'int' and
+## 'str'"))
+## ILN_Result(type_is=False,
+## val=ValueError('letter must be a single
+## character string'))
+## ILN_Result(type_is=False,
+## val=ValueError('number must be an integer
+## between 1 and 9'))
+## ILN_Result(type_is=True,
+## val=LetterNumber(letter='g', number=9))

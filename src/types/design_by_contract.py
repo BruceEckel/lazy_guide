@@ -1,4 +1,4 @@
-#: design_by_contract.py
+# design_by_contract.py
 from typing import Final
 
 
@@ -31,6 +31,6 @@ def withdraw(balance: float, amount: float) -> float:
 
 
 print(balance := deposit(100.0, 50.0))
-#| 150.0
+## 150.0
 print(withdraw(balance, 30.0))
-#| 120.0
+## 120.0

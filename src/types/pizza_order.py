@@ -1,4 +1,4 @@
-#: pizza_order.py
+# pizza_order.py
 # Basic enumerations
 from enum import Enum, auto
 from dataclasses import dataclass
@@ -44,6 +44,12 @@ class Order:
 
 pizza = Pizza(Size.LARGE, [Add.PEPPERONI, Add.OLIVES])
 pp(pizza, width=47)
+## Pizza(size=<Size.LARGE: 2>,
+##       toppings=[<Add.PEPPERONI: 1>,
+##                 <Add.OLIVES: 3>])
 pp(order := Order(pizza), width=47)
+## Ordered
 pp(order.update(Status.IN_OVEN), width=47)
+## In Oven
 pp(order.update(Status.READY), width=47)
+## Ready

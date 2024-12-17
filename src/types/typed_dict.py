@@ -1,4 +1,4 @@
-#: typed_dict.py
+# typed_dict.py
 import sys
 from typing import TypedDict
 
@@ -41,3 +41,17 @@ def is_letter_number(val: dict) -> TypeIs[LetterNumber]:
 
 if __name__ == "__main__":
     [print(is_letter_number(f)) for f in letter_number_list]
+## is_letter_number({'letter': 'a', 'number': 1}):
+## True
+## is_letter_number({'Letter': 'b', 'number': 2}):
+## False
+## is_letter_number({'letter': 9, 'number': 3}):
+## False
+## is_letter_number({'letter': 'd', 'number':
+## 'x'}): False
+## is_letter_number({'letter': 'ee', 'number':
+## 5}): False
+## is_letter_number({'letter': 'f', 'number':
+## 11}): False
+## is_letter_number({'letter': 'g', 'number': 9}):
+## True

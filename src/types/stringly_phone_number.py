@@ -1,4 +1,4 @@
-#: stringly_phone_number.py
+# stringly_phone_number.py
 import re
 
 
@@ -17,5 +17,8 @@ def text(phone: str, message: str):
 
 
 call("(123) 456-7890")
+## (123) 456-7890
 text("(123) 456-7890", "Howdy!")
+## (123) 456-7890 Howdy!
 text("123-456-7890", "Hi!")
+## Bad number: 123-456-7890

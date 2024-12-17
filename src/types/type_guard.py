@@ -1,4 +1,4 @@
-#: type_guard.py
+# type_guard.py
 from dataclasses import dataclass
 
 from typeguard import typechecked
@@ -29,3 +29,6 @@ if __name__ == "__main__":
         analyze_sales(bad_data)
     except TypeError:
         print(f"Bad inputs: {bad_data}")
+## SalesStats(total=600.0, average=200.0,
+## maximum=300.0)
+## Bad inputs: [100, '200', 300.0]

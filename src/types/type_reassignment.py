@@ -1,6 +1,5 @@
 # type_reassignment.py
 
-
 n: int = 11
 print(f"{type(n) = }")
 ## type(n) = <class 'int'>

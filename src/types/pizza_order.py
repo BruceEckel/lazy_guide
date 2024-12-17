@@ -2,7 +2,6 @@
 # Basic enumerations
 from enum import Enum, auto
 from dataclasses import dataclass
-from pprint import pp
 
 
 class Size(Enum):
@@ -42,14 +41,15 @@ class Order:
         return self
 
 
-pizza = Pizza(Size.LARGE, [Add.PEPPERONI, Add.OLIVES])
-pp(pizza, width=47)
+print(pizza := Pizza(Size.LARGE, [Add.PEPPERONI, Add.OLIVES]))
 ## Pizza(size=<Size.LARGE: 2>,
-##       toppings=[<Add.PEPPERONI: 1>,
-##                 <Add.OLIVES: 3>])
-pp(order := Order(pizza), width=47)
+## toppings=[<Add.PEPPERONI: 1>, <Add.OLIVES: 3>])
+print(pizza)
+## Pizza(size=<Size.LARGE: 2>,
+## toppings=[<Add.PEPPERONI: 1>, <Add.OLIVES: 3>])
+print(order := Order(pizza))
 ## Ordered
-pp(order.update(Status.IN_OVEN), width=47)
+print(order.update(Status.IN_OVEN))
 ## In Oven
-pp(order.update(Status.READY), width=47)
+print(order.update(Status.READY))
 ## Ready

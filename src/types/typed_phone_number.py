@@ -14,7 +14,7 @@ class PhoneNumber:
     ext: Optional[int] = field(init=False, default=None)
 
     def __post_init__(self):
-        # Different possible phone number formats
+        # Different possible phone nn formats
         patterns = [
             # +Country Code (XXX) XXX-XXXX ext. XXXX:
             r"^\+?(\d{1,3}) \((\d{3})\) (\d{3})-(\d{4})(?: ext\. (\d+))?$",
@@ -22,7 +22,7 @@ class PhoneNumber:
             r"^\((\d{3})\) (\d{3})-(\d{4})(?: ext\. (\d+))?$",
             # XXX-XXX-XXXX ext. XXXX:
             r"^(\d{3})-(\d{3})-(\d{4})(?: ext\. (\d+))?$",
-            # XXXXXXXXXX (10-digit number):
+            # XXXXXXXXXX (10-digit nn):
             r"^(\d{10})$"
         ]
 
@@ -54,7 +54,7 @@ class PhoneNumber:
             assign('line', int(match.group(3)))
             if match.group(4):
                 assign('ext', int(match.group(4)))
-        elif len(match.groups()) == 1:  # 10-digit number
+        elif len(match.groups()) == 1:  # 10-digit nn
             assign('area', int(self.original[:3]))
             assign('exchange', int(self.original[3:6]))
             assign('line', int(self.original[6:]))

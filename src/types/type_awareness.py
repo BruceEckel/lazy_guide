@@ -1,6 +1,5 @@
 # type_awareness.py
 
-
 x = True
 print(f"{type(x) = }")
 ## type(x) = <class 'bool'>
